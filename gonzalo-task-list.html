@@ -1,4 +1,5 @@
 <link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../gonzalo-task-element/gonzalo-task-element.html">
 
 <dom-module id="gonzalo-task-list">
   <template>
@@ -6,10 +7,24 @@
       :host {
         display: block;
       }
-      
+      .task-list {
+        list-style: none;
+      }
 
     </style>
-     
+    <h1>List task</h1>
+     <ul class="task-list">
+        <template is="dom-repeat" items=[[taskList]]>
+          <li>
+            <gonzalo-task-element
+            key=[[item.id]]
+            title=[[item.title]]
+            done=[[item.done]]
+            canceled=[[item.canceled]]
+            ></gonzalo-task-element>
+          </li>
+        </template>
+      </ul>
   </template>
 
   <script>
@@ -17,8 +32,10 @@
       static get is() { return 'gonzalo-task-list'; }
       static get properties() {
         return {
-          title: 'list'
-          
+           taskList: {
+             type: Array,
+             value: []
+           }
         };
       }
     
