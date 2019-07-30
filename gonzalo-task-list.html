@@ -1,0 +1,29 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="gonzalo-task-list">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      
+
+    </style>
+     
+  </template>
+
+  <script>
+    class GonzaloTaskList extends Polymer.Element {
+      static get is() { return 'gonzalo-task-list'; }
+      static get properties() {
+        return {
+          title: 'list'
+          
+        };
+      }
+    
+    }
+
+    window.customElements.define(GonzaloTaskList.is, GonzaloTaskList);
+  </script>
+</dom-module>
